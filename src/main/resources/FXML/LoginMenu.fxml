@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="View.RegisterMenu"
+            prefHeight="600.0" prefWidth="900.0"
+            stylesheets="@../CSS/styles.css"
+            styleClass="login-menu-background">
+    <BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-padding: 10px;">
+        <top>
+            <VBox alignment="CENTER">
+                <HBox alignment="CENTER">
+                    <Button HBox.hgrow="ALWAYS" styleClass="normal-button, button" prefWidth="40"
+                            prefHeight="40" onMouseClicked="#backToRegisterMenu">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                                <Image url="@../Images/back_icon.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+                <Text styleClass="white-text" style="-fx-font-size: 30px;" text="Login"/>
+            </VBox>
+        </top>
+        <center>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" maxWidth="400">
+                <Text styleClass="white-text">Username</Text>
+                <TextField styleClass="custom-textfield" fx:id="username" promptText="Username" maxWidth="300"/>
+                <Text styleClass="white-text">Password</Text>
+                <PasswordField styleClass="custom-textfield" fx:id="password" promptText="Password" maxWidth="300"/>
+                <Button styleClass="login-button-style, button" text="Login"
+                        onMouseClicked="#login"/>
+                <Text style="-fx-font-size: 14px" styleClass="white-text">Don't have any account?</Text>
+                <Button styleClass="signup-button-style, button" text="Signup"
+                        onMouseClicked="#openSignupPage"/>
+                <Text style="-fx-font-size: 14px" styleClass="white-text">Let's play without account</Text>
+                <Button styleClass="guest-button-style, button" mnemonicParsing="false"
+                        text="Continue As Guest"
+                        onMouseClicked="#guestLogin"/>
+            </VBox>
+        </center>
+    </BorderPane>
+
+</AnchorPane>

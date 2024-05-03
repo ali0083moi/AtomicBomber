@@ -6,4 +6,7 @@ module AtomicBomber {
 
     exports View;
     opens View to javafx.fxml;
+    opens Controller to javafx.fxml;
+    opens Model to javafx.fxml;
+    opens Enums to javafx.fxml;
 }
