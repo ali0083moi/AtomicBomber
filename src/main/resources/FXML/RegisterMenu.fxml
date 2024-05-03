@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RegisterMenu">
+   <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
+      <center>
+         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <children>
+               <TextField fx:id="username" promptText="Username" />
+               <TextField fx:id="password" promptText="Password" />
+               <Button fx:id="registerButton" mnemonicParsing="false" text="Register" onMouseClicked="#signup"/>
+            </children>
+         </VBox>
+      </center>
+   </BorderPane>
+</AnchorPane>
