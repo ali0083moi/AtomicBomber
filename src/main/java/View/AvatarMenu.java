@@ -91,7 +91,7 @@ public class AvatarMenu extends Application {
         profileMenu.start(stage);
     }
 
-    public void setNewAvatar(MouseEvent mouseEvent) {
+    public void setNewAvatar(MouseEvent mouseEvent) throws Exception {
         controller.setNewAvatar();
     }
 

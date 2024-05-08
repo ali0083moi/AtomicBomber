@@ -2299,5 +2299,83 @@
     "kills": 0,
     "deaths": 0,
     "accuracy": 0
+  },
+  {
+    "username": "promise",
+    "password": "Guest#",
+    "avatarPath": "/images/avatars/avatar5.png",
+    "score": 0,
+    "lastWave": 0,
+    "gamesPlayed": 0,
+    "gamesWon": 0,
+    "gamesLost": 0,
+    "kills": 0,
+    "deaths": 0,
+    "accuracy": 0
+  },
+  {
+    "username": "Guest176",
+    "password": "Guest#",
+    "avatarPath": "/images/avatars/avatar3.png",
+    "score": 0,
+    "lastWave": 0,
+    "gamesPlayed": 0,
+    "gamesWon": 0,
+    "gamesLost": 0,
+    "kills": 0,
+    "deaths": 0,
+    "accuracy": 0
+  },
+  {
+    "username": "Guest177",
+    "password": "Guest#",
+    "avatarPath": "/images/avatars/avatar1.png",
+    "score": 0,
+    "lastWave": 0,
+    "gamesPlayed": 0,
+    "gamesWon": 0,
+    "gamesLost": 0,
+    "kills": 0,
+    "deaths": 0,
+    "accuracy": 0
+  },
+  {
+    "username": "Guest178",
+    "password": "Guest#",
+    "avatarPath": "/images/avatars/avatar3.png",
+    "score": 0,
+    "lastWave": 0,
+    "gamesPlayed": 0,
+    "gamesWon": 0,
+    "gamesLost": 0,
+    "kills": 0,
+    "deaths": 0,
+    "accuracy": 0
+  },
+  {
+    "username": "Guest179",
+    "password": "Guest#",
+    "avatarPath": "/images/avatars/avatar10.png",
+    "score": 0,
+    "lastWave": 0,
+    "gamesPlayed": 0,
+    "gamesWon": 0,
+    "gamesLost": 0,
+    "kills": 0,
+    "deaths": 0,
+    "accuracy": 0
+  },
+  {
+    "username": "Guest180",
+    "password": "Guest#",
+    "avatarPath": "/images/avatars/avatar3.png",
+    "score": 0,
+    "lastWave": 0,
+    "gamesPlayed": 0,
+    "gamesWon": 0,
+    "gamesLost": 0,
+    "kills": 0,
+    "deaths": 0,
+    "accuracy": 0
   }
 ]

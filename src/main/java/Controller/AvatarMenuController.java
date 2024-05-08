@@ -41,7 +41,7 @@ public class AvatarMenuController {
         avatarImageView.setImage(avatar);
     }
 
-    public void setNewAvatar() {
+    public void setNewAvatar() throws Exception {
         if (AvatarMenu.getAvatarPath() == null || AvatarMenu.getAvatarPath().equals(loggedInUser.getAvatarPath())) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Avatar already selected");
@@ -56,6 +56,8 @@ public class AvatarMenuController {
             alert.showAndWait();
             if (alert.getResult().getText().equals("OK")) {
                 loggedInUser.setAvatarPath(AvatarMenu.getAvatarPath());
+                AvatarMenu avatarMenu = new AvatarMenu();
+                avatarMenu.backToProfileMenu(null);
             } else {
                 alert.close();
             }
@@ -85,8 +87,16 @@ public class AvatarMenuController {
                 avatarImageView.setImage(image);
                 AvatarMenu.setAvatarPath("/images/avatars/" + fileName);
                 loggedInUser.setAvatarPath(AvatarMenu.getAvatarPath());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Avatar selected");
+                alert.setHeaderText("Your avatar has been selected successfully.");
+                alert.showAndWait();
+                AvatarMenu avatarMenu = new AvatarMenu();
+                avatarMenu.backToProfileMenu(null);
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -108,6 +118,12 @@ public class AvatarMenuController {
             avatarImageView.setImage(image);
             AvatarMenu.setAvatarPath("/images/avatars/" + fileName);
             loggedInUser.setAvatarPath(AvatarMenu.getAvatarPath());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Avatar selected");
+            alert.setHeaderText("Your avatar has been selected successfully.");
+            alert.showAndWait();
+            AvatarMenu avatarMenu = new AvatarMenu();
+            avatarMenu.backToProfileMenu(null);
             // You can also perform additional actions here, such as saving the image to a specific location
         } catch (Exception e) {
             e.printStackTrace();
