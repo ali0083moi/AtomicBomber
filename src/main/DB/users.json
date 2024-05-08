@@ -2377,5 +2377,18 @@
     "kills": 0,
     "deaths": 0,
     "accuracy": 0
+  },
+  {
+    "username": "Guest181",
+    "password": "Guest#",
+    "avatarPath": "/images/avatars/avatar8.png",
+    "score": 0,
+    "lastWave": 0,
+    "gamesPlayed": 0,
+    "gamesWon": 0,
+    "gamesLost": 0,
+    "kills": 0,
+    "deaths": 0,
+    "accuracy": 0
   }
 ]

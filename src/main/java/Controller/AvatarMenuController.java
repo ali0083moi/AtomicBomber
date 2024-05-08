@@ -73,6 +73,15 @@ public class AvatarMenuController {
         if (selectedFile != null) {
             try {
                 // Copy the selected file to the images directory
+                Image droppedImage = new Image(selectedFile.toURI().toString());
+                if (!(droppedImage.getWidth() == 400 && droppedImage.getHeight() == 400)){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Invalid image size");
+                    alert.setHeaderText("Invalid image size.");
+                    alert.setContentText("Please select an image with 400x400 dimensions.");
+                    alert.showAndWait();
+                    return;
+                }
                 File imagesDirectory = new File("src/main/resources/images/avatars");
                 if (!imagesDirectory.exists()) {
                     imagesDirectory.mkdir();
@@ -104,6 +113,16 @@ public class AvatarMenuController {
     public void handleDroppedImage(File file, ImageView avatarImageView) {
         try {
             // Load the dropped image into the ImageView
+            // i want to check the image width and height here
+            Image droppedImage = new Image(file.toURI().toString());
+            if (!(droppedImage.getWidth() == 400 && droppedImage.getHeight() == 400)){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Invalid image size");
+                alert.setHeaderText("Invalid image size.");
+                alert.setContentText("Please select an image with 400x400 dimensions.");
+                alert.showAndWait();
+                return;
+            }
             File imagesDirectory = new File("src/main/resources/images/avatars");
             if (!imagesDirectory.exists()) {
                 imagesDirectory.mkdir();
