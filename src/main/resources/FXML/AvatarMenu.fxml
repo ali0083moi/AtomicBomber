@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AvatarMenu"
+            stylesheets="@../CSS/styles.css"
+            styleClass="avatar-menu-background">
+    <BorderPane prefHeight="600.0" prefWidth="900.0">
+        <center>
+            <HBox spacing="50">
+                <VBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="350.0" spacing="40.0" translateY="-70">
+                    <StackPane prefHeight="200.0" prefWidth="100.0" translateX="50">
+                        <ImageView fx:id="avatarImageView" fitHeight="190" pickOnBounds="true" preserveRatio="true"
+                                   StackPane.alignment="TOP_LEFT"
+                                   translateX="95"
+                                   translateY="55"/>
+                        <ImageView fitHeight="300" fitWidth="300" StackPane.alignment="CENTER_LEFT" translateX="30">
+                            <Image url="@../images/avatar-place.png"/>
+                        </ImageView>
+                    </StackPane>
+                </VBox>
+            </HBox>
+        </center>
+        <bottom>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" translateY="-120">
+                <StackPane alignment="TOP_LEFT" prefHeight="100.0" prefWidth="900.0" translateX="30">
+                    <ImageView fitWidth="60" fitHeight="60" pickOnBounds="true" preserveRatio="true"
+                               StackPane.alignment="TOP_LEFT" translateX="20" translateY="20">
+                        <Image url="@../images/avatars/avatar1.png"/>
+                    </ImageView>
+                    <ImageView fitWidth="60" fitHeight="60" pickOnBounds="true" preserveRatio="true"
+                               StackPane.alignment="TOP_LEFT" translateX="120" translateY="20">
+                        <Image url="@../images/avatars/avatar2.png"/>
+                    </ImageView>
+                    <ImageView fitWidth="60" fitHeight="60" pickOnBounds="true" preserveRatio="true"
+                               StackPane.alignment="TOP_LEFT" translateX="220" translateY="20">
+                        <Image url="@../images/avatars/avatar3.png"/>
+                    </ImageView>
+                    <ImageView fitWidth="60" fitHeight="60" pickOnBounds="true" preserveRatio="true"
+                               StackPane.alignment="TOP_LEFT" translateX="320" translateY="20">
+                        <Image url="@../images/avatars/avatar4.png"/>
+                    </ImageView>
+
+                    <ImageView fitWidth="60" fitHeight="60" pickOnBounds="true" preserveRatio="true"
+                               StackPane.alignment="TOP_LEFT" translateX="20" translateY="120">
+                        <Image url="@../images/avatars/avatar5.png"/>
+                    </ImageView>
+                    <ImageView fitWidth="60" fitHeight="60" pickOnBounds="true" preserveRatio="true"
+                               StackPane.alignment="TOP_LEFT" translateX="120" translateY="120">
+                        <Image url="@../images/avatars/avatar6.png"/>
+                    </ImageView>
+                    <ImageView fitWidth="60" fitHeight="60" pickOnBounds="true" preserveRatio="true"
+                               StackPane.alignment="TOP_LEFT" translateX="220" translateY="120">
+                        <Image url="@../images/avatars/avatar7.png"/>
+                    </ImageView>
+                    <ImageView fitWidth="60" fitHeight="60" pickOnBounds="true" preserveRatio="true"
+                               StackPane.alignment="TOP_LEFT" translateX="320" translateY="120">
+                        <Image url="@../images/avatars/avatar8.png"/>
+                    </ImageView>
+
+                    <ImageView fx:id="avatar1" styleClass="button" onMouseClicked="#chooseAvatar" fitWidth="100"
+                               fitHeight="100" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../images/1-avatar-places.png"/>
+                    </ImageView>
+                    <ImageView fx:id="avatar2" styleClass="button" onMouseClicked="#chooseAvatar" fitWidth="100"
+                               fitHeight="100" pickOnBounds="true" preserveRatio="true" translateX="100">
+                        <Image url="@../images/1-avatar-places.png"/>
+                    </ImageView>
+                    <ImageView fx:id="avatar3" styleClass="button" onMouseClicked="#chooseAvatar" fitWidth="100"
+                               fitHeight="100" pickOnBounds="true" preserveRatio="true" translateX="200">
+                        <Image url="@../images/1-avatar-places.png"/>
+                    </ImageView>
+                    <ImageView fx:id="avatar4" styleClass="button" onMouseClicked="#chooseAvatar" fitWidth="100"
+                               fitHeight="100" pickOnBounds="true" preserveRatio="true" translateX="300">
+                        <Image url="@../images/1-avatar-places.png"/>
+                    </ImageView>
+
+                    <ImageView fx:id="avatar5" styleClass="button" onMouseClicked="#chooseAvatar" fitWidth="100"
+                               fitHeight="100" pickOnBounds="true" preserveRatio="true" translateY="100">
+                        <Image url="@../images/1-avatar-places.png"/>
+                    </ImageView>
+                    <ImageView fx:id="avatar6" styleClass="button" onMouseClicked="#chooseAvatar" fitWidth="100"
+                               fitHeight="100" pickOnBounds="true" preserveRatio="true" translateX="100" translateY="100">
+                        <Image url="@../images/1-avatar-places.png"/>
+                    </ImageView>
+                    <ImageView fx:id="avatar7" styleClass="button" onMouseClicked="#chooseAvatar" fitWidth="100"
+                               fitHeight="100" pickOnBounds="true" preserveRatio="true" translateX="200" translateY="100">
+                        <Image url="@../images/1-avatar-places.png"/>
+                    </ImageView>
+                    <ImageView fx:id="avatar8" styleClass="button" onMouseClicked="#chooseAvatar" fitWidth="100"
+                               fitHeight="100" pickOnBounds="true" preserveRatio="true" translateX="300" translateY="100">
+                        <Image url="@../images/1-avatar-places.png"/>
+                    </ImageView>
+
+                </StackPane>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" translateX="-50">
+                    <Button minWidth="250" minHeight="50" styleClass="green-button-style, button" mnemonicParsing="false"
+                            text="Set this avatar"
+                            onMouseClicked="#setNewAvatar"/>
+                    <Button minWidth="250" minHeight="50" styleClass="purple-button-style, button" mnemonicParsing="false"
+                            text="Choose avatar from files"
+                            onMouseClicked="#openAvatarFromFile"
+                            fx:id="openAvatarFromFile"/>
+                </VBox>
+            </HBox>
+        </bottom>
+        <top>
+            <Button HBox.hgrow="ALWAYS" styleClass="blue-button-style, button" prefWidth="40"
+                    prefHeight="40" onMouseClicked="#backToProfileMenu" translateY="10" translateX="10">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <Image url="@../images/back_icon.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </top>
+    </BorderPane>
+</AnchorPane>

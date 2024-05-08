@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainMenu">
-    <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
-        <center>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-                <Text>I'm New</Text>
-            </VBox>
-        </center>
-    </BorderPane>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainMenu"
+            stylesheets="@../CSS/styles.css"
+            styleClass="main-menu-background">
+    <ImageView fx:id="avatarImageView" layoutX="130" layoutY="108" fitHeight="70" fitWidth="70"/>
+    <ImageView layoutX="100" layoutY="80" fitHeight="120" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../images/player-data-shower.png"/>
+        </image>
+    </ImageView>
+    <Text layoutY="142" layoutX="235" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+          wrappingWidth="200.0">Username:
+    </Text>
+    <Text layoutY="167" layoutX="235" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" fx:id="username"
+          text="Player Username"
+          wrappingWidth="200.0"/>
+    <HBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" layoutY="300" layoutX="100"
+          maxWidth="700">
+        <VBox alignment="CENTER" spacing="20" prefWidth="300">
+            <Button onMouseClicked="#startGame" styleClass="green-button-style,button" text="Play new game" minWidth="300" minHeight="60"/>
+            <Button onMouseClicked="#resumeGame" styleClass="purple-button-style,button" text="Resume game" minWidth="300" minHeight="60"/>
+        </VBox>
+        <VBox alignment="CENTER" spacing="20" prefWidth="300">
+            <Button onMouseClicked="#openProfileMenu" styleClass="gray-button-style,button" text="Edit profile" minWidth="300" minHeight="60"/>
+            <Button onMouseClicked="#openScoreBoard" styleClass="orange-button-style,button" text="Score board" minWidth="300" minHeight="60"/>
+        </VBox>
+        <VBox alignment="CENTER" spacing="20" prefWidth="60">
+            <Button onMouseClicked="#openSettingsMenu" styleClass="blue-button-style,button" minWidth="60" minHeight="60">
+                <graphic>
+                    <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                        <Image url="@../images/settings-icon.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button onMouseClicked="#quitGame" styleClass="red-button-style,button" minWidth="60" minHeight="60">
+                <graphic>
+                    <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                        <Image url="@../images/quit-icon.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </VBox>
+    </HBox>
+
 </AnchorPane>

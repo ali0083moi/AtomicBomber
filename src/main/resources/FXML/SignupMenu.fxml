@@ -15,11 +15,11 @@
         <top>
             <VBox alignment="CENTER">
                 <HBox alignment="CENTER">
-                    <Button HBox.hgrow="ALWAYS" styleClass="normal-button, button" prefWidth="40" prefHeight="40"
+                    <Button HBox.hgrow="ALWAYS" styleClass="blue-button-style, button" prefWidth="40" prefHeight="40"
                             onMouseClicked="#backToRegisterMenu">
                         <graphic>
                             <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
-                                <Image url="@../Images/back_icon.png"/>
+                                <Image url="@../images/back_icon.png"/>
                             </ImageView>
                         </graphic>
                     </Button>
@@ -34,13 +34,13 @@
                 <TextField styleClass="custom-textfield" fx:id="username" promptText="Username" maxWidth="300"/>
                 <Text styleClass="white-text">Password</Text>
                 <PasswordField styleClass="custom-textfield" fx:id="password" promptText="Password" maxWidth="300"/>
-                <Button styleClass="signup-button-style, button" text="Signup"
+                <Button styleClass="green-button-style, button" text="Signup"
                         onMouseClicked="#signup"/>
                 <Text style="-fx-font-size: 14px" styleClass="white-text">Already have an account?</Text>
-                <Button styleClass="login-button-style, button" text="Login"
+                <Button styleClass="purple-button-style, button" text="Login"
                         onMouseClicked="#openLoginPage"/>
                 <Text style="-fx-font-size: 14px" styleClass="white-text">Let's play without account</Text>
-                <Button styleClass="guest-button-style, button" mnemonicParsing="false"
+                <Button styleClass="orange-button-style, button" mnemonicParsing="false"
                         text="Continue As Guest"
                         onMouseClicked="#guestLogin"/>
             </VBox>

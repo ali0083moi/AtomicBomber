@@ -1,12 +1,79 @@
 package Model;
 
+import java.io.File;
 import java.util.ArrayList;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class App {
     private static User loggedInUser;
     private static ArrayList<User> users = new ArrayList<User>();
-    private static int guestUserCount = 0;
-    private static boolean isMute = false;
+    private static int guestUserCount;
+    private static boolean isMute;
+    private static final String USERS_JSON_FILE = "src/main/DB/users.json";
+
+    public App(int guestUserCount, boolean isMute) {
+        this.guestUserCount = guestUserCount;
+        this.isMute = isMute;
+    }
+
+    public static void saveApp(int guestUserCount) {
+        File file = new File("src/main/DB/appData.txt");
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(String.valueOf(guestUserCount));
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadApp() {
+        File file = new File("src/main/DB/appData.txt");
+        try {
+            FileReader reader = new FileReader(file);
+            Scanner scanner = new Scanner(file);
+            App.guestUserCount = scanner.nextInt();
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveUsers(ArrayList<User> users) {
+        try {
+            FileWriter writer = new FileWriter(USERS_JSON_FILE);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(users, writer);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<User> loadUsers() {
+        ArrayList<User> users = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(USERS_JSON_FILE);
+            Gson gson = new Gson();
+            User[] userArray = gson.fromJson(reader, User[].class);
+            if (userArray != null) {
+                for (User user : userArray) {
+                    users.add(user);
+                }
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
 
     public static User getUserByUsername(String username) {
         for (User user : users) {
@@ -51,5 +118,9 @@ public class App {
 
     public static void setIsMute(boolean isMute) {
         App.isMute = isMute;
+    }
+
+    public static void deleteUser(User loggedInUser) {
+        users.remove(loggedInUser);
     }
 }

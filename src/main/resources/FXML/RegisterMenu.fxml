@@ -2,22 +2,27 @@
 
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RegisterMenu"
             stylesheets="@../CSS/styles.css"
             styleClass="register-menu-background">
     <BorderPane prefHeight="600.0" prefWidth="900.0">
         <center>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-                <Button styleClass="signup-button-style, button" mnemonicParsing="false"
-                        text="Signup"
-                        onMouseClicked="#openSignupPage"/>
-                <Button styleClass="login-button-style, button" mnemonicParsing="false" text="Login"
-                        onMouseClicked="#openLoginPage"/>
-                <Button styleClass="guest-button-style, button" mnemonicParsing="false"
-                        text="Continue As Guest"
-                        onMouseClicked="#guestLogin"/>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0">
+                <Text styleClass="register-menu-title" text="Atomic Bomber"/>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                    <Button minWidth="200" styleClass="green-button-style, button" mnemonicParsing="false"
+                            text="Signup"
+                            onMouseClicked="#openSignupPage"/>
+                    <Button minWidth="200" styleClass="purple-button-style, button" mnemonicParsing="false" text="Login"
+                            onMouseClicked="#openLoginPage"/>
+                    <Button minWidth="200" styleClass="orange-button-style, button" mnemonicParsing="false"
+                            text="Continue As Guest"
+                            onMouseClicked="#guestLogin"/>
+                </VBox>
             </VBox>
         </center>
     </BorderPane>

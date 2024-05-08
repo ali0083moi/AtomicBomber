@@ -3,7 +3,7 @@ package Model;
 public class User {
     private String username;
     private String password;
-    private String avatar;
+    private String avatarPath;
     private int score;
     private int lastWave;
     private int gamesPlayed;
@@ -14,10 +14,10 @@ public class User {
     private int accuracy;
     private Game lastGame;
 
-    public User(String username, String password) {
+    public User(String username, String password, String avatarPath) {
         this.username = username;
         this.password = password;
-        this.avatar = "default";
+        this.avatarPath = avatarPath;
         this.score = 0;
         this.lastWave = 0;
         this.gamesPlayed = 0;
@@ -45,12 +45,12 @@ public class User {
         this.password = password;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getAvatarPath() {
+        return avatarPath;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setAvatarPath(String avatarPath) {
+        this.avatarPath = avatarPath;
     }
 
     public int getScore() {
