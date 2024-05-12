@@ -1,5 +1,26 @@
 package Model.GroundObjects;
 
-public class Trench {
+import Model.Game;
+import Model.Plane;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
+
+import java.util.Objects;
+
+public class Trench extends Rectangle {
     private final int points = 2;
+    public final double WIDTH = 20;
+    public final double HEIGHT = 15.7;
+    private int x;
+    private int y;
+    private Game game;
+
+    public Trench(Game game) {
+        super(20, 15.7);
+        this.game = game;
+        setX((double) Game.WIDTH / 2 - WIDTH / 2);
+        setY((double) Game.HEIGHT / 2 - HEIGHT / 2);
+        setFill(new ImagePattern(new Image(Objects.requireNonNull(Plane.class.getResource("/images/trench.png")).toExternalForm())));
+    }
 }
