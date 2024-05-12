@@ -128,3 +128,40 @@
     -fx-background-image: url("/Images/profile-menu-background.png");
     -fx-background-size: cover;
 }
+
+.scoreboard-background {
+    -fx-background-image: url("/Images/scoreboard-background.png");
+    -fx-background-size: cover;
+}
+
+.scoreboard-table {
+    -fx-background-color: linear-gradient(to bottom, #8a2d95, #2f1754);
+    -fx-text-fill: #f8ffed;
+    -fx-background-radius: 10;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+    -fx-border-color: #ffc5ff;
+    -fx-fill: #f8ffed;
+}
+
+.column-header {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: #f8ffed;
+    -fx-background-color: linear-gradient(to bottom, #c5a4f6, #a974f8);
+    -fx-text-fill: #f8ffed;
+}
+.table-view {
+    -fx-text-fill: #2f1754; /* Change to the color you desire */
+}
+.table-cell {
+    -fx-text-fill: #2f1754;
+}
+.table-row-cell {
+    -fx-background-color: lightgray; /* Change to the color you desire */
+}
+
+.settings-menu-background {
+    -fx-background-image: url("/Images/settings-menu-background.png");
+    -fx-background-size: cover;
+}

@@ -6,9 +6,43 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.text.TextFlow?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="View.ScoreBoard"
-            prefHeight="400.0" prefWidth="600.0">
-
+            prefHeight="600.0" prefWidth="900.0"
+            stylesheets="@../CSS/styles.css"
+            styleClass="scoreboard-background">
+    <BorderPane prefHeight="600.0" prefWidth="900.0">
+        <center>
+            <VBox spacing="20" alignment="CENTER" translateY="-50">
+                <Text style="-fx-font-size: 25" styleClass="white-text" text="Scoreboard"/>
+                <TableView styleClass="scoreboard-table" fx:id="scoreboardTable" maxWidth="706.0" minHeight="400.0">
+                    <columns>
+                        <TableColumn minWidth="100" styleClass="column-header" fx:id="rankColumn" prefWidth="75.0" text="Rank"/>
+                        <TableColumn minWidth="200" styleClass="column-header" fx:id="usernameColumn" prefWidth="150.0" text="Username"/>
+                        <TableColumn minWidth="100" styleClass="column-header" fx:id="scoreColumn" prefWidth="75.0" text="Score"/>
+                        <TableColumn minWidth="100" styleClass="column-header" fx:id="waveColumn" prefWidth="75.0" text="lastWave"/>
+                        <TableColumn minWidth="100" styleClass="column-header" fx:id="killsColumn" prefWidth="75.0" text="Kills"/>
+                        <TableColumn minWidth="100" styleClass="column-header" fx:id="difficultyColumn" prefWidth="75.0" text="Difficulty"/>
+                        <TableColumn minWidth="100" styleClass="column-header" fx:id="accuracyColumn" prefWidth="75.0" text="Accuracy"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </center>
+        <top>
+            <Button HBox.hgrow="ALWAYS" styleClass="blue-button-style, button" prefWidth="40"
+                    prefHeight="40" onMouseClicked="#backToMainMenu" translateY="10" translateX="10">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <Image url="@../images/back_icon.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </top>
+    </BorderPane>
 </AnchorPane>

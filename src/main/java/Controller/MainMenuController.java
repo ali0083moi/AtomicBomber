@@ -3,13 +3,17 @@ package Controller;
 import Model.App;
 import Model.Game;
 import Model.User;
+import View.GameLauncher;
 import javafx.scene.control.Alert;
 
 import static View.Main.stage;
 
 public class MainMenuController {
-    public void startGame(User loggedInUser) {
-        Game game = new Game();
+    public void startGame(User loggedInUser) throws Exception {
+        Game game = new Game(loggedInUser, App.getDifficulty(), loggedInUser.getLastWave(), App.isIsMute(),App.isBlackAndWhite());
+        GameLauncher gameLauncher = new GameLauncher();
+        gameLauncher.setGame(game);
+        gameLauncher.start(stage);
     }
 
     public void resumeGame() {
@@ -34,7 +38,7 @@ public class MainMenuController {
         alert.setHeaderText("Are you sure you want to exit?");
         alert.showAndWait();
         if (alert.getResult().getText().equals("OK")) {
-            App.saveUsers(App.getUsers());
+            //App.saveUsers(App.getUsers());
             App.saveApp(App.getGuestUserCount());
             stage.close();
         } else alert.close();

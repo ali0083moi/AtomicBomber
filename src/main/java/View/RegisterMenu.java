@@ -29,7 +29,7 @@ public class RegisterMenu extends Application {
         stageCreator(url, "Atomic Bomber");
         stage.setOnCloseRequest(event -> {
             // Save users data before closing
-            App.saveUsers(App.getUsers());
+            //App.saveUsers(App.getUsers());
             App.saveApp(App.getGuestUserCount());
         });
     }

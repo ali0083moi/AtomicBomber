@@ -47,7 +47,7 @@ public class ProfileMenu extends Application {
         stageCreator(url, "Atomic Bomber - Profile Menu");
         stage.setOnCloseRequest(event -> {
             // Save users data before closing
-            App.saveUsers(App.getUsers());
+            //App.saveUsers(App.getUsers());
             App.saveApp(App.getGuestUserCount());
         });
     }

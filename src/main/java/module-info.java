@@ -6,8 +6,10 @@ module AtomicBomber {
     requires com.google.gson;
 
     exports View;
-    opens View to javafx.fxml;
-    opens Controller to javafx.fxml;
-    opens Model to com.google.gson;
+    exports Controller;
+    exports Model;
+    opens View to javafx.fxml, com.google.gson;
+    opens Controller to javafx.fxml, com.google.gson;
+    opens Model to com.google.gson, javafx.base, javafx.fxml;
     opens Enums to javafx.fxml;
 }

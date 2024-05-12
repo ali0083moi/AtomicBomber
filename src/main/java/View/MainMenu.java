@@ -33,7 +33,7 @@ public class MainMenu extends Application{
         stageCreator(url, "Atomic Bomber - Main Menu");
         stage.setOnCloseRequest(event -> {
             // Save users data before closing
-            App.saveUsers(App.getUsers());
+            //App.saveUsers(App.getUsers());
             App.saveApp(App.getGuestUserCount());
         });
     }
@@ -55,7 +55,7 @@ public class MainMenu extends Application{
         stage.show();
     }
 
-    public void startGame(MouseEvent mouseEvent) {
+    public void startGame(MouseEvent mouseEvent) throws Exception {
         controller.startGame(loggedInUser);
     }
 
@@ -68,9 +68,8 @@ public class MainMenu extends Application{
     }
 
     public void openScoreBoard(MouseEvent mouseEvent) throws Exception {
-        URL url = Main.class.getResource("/FXML/ScoreBoard.fxml");
-        assert url != null;
-        stageCreator(url, "Atomic Bomber - Scoreboard");
+        ScoreBoard scoreBoard = new ScoreBoard();
+        scoreBoard.start(stage);
     }
 
     public void openSettingsMenu(MouseEvent mouseEvent) throws Exception {

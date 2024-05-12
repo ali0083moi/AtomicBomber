@@ -19,7 +19,7 @@ public class User {
         this.password = password;
         this.avatarPath = avatarPath;
         this.score = 0;
-        this.lastWave = 0;
+        this.lastWave = 1;
         this.gamesPlayed = 0;
         this.gamesWon = 0;
         this.gamesLost = 0;

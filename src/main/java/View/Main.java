@@ -16,14 +16,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        ArrayList<User> users = App.loadUsers();
-        App.setUsers(users);
+        //ArrayList<User> users = App.loadUsers();
+        //App.setUsers(users);
         App.loadApp();
         Main.stage = stage;
         RegisterMenu registerMenu = new RegisterMenu();
         registerMenu.start(stage);
         stage.setOnCloseRequest(event -> {
-            App.saveUsers(App.getUsers());
+            //App.saveUsers(App.getUsers());
             App.saveApp(App.getGuestUserCount());
 //            App.saveApp(App.getGuestUserCount(), App.isIsMute());
         });

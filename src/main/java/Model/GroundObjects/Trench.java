@@ -1,5 +1,5 @@
 package Model.GroundObjects;
 
-public class Trench extends GroundObjects{
+public class Trench {
     private final int points = 2;
 }

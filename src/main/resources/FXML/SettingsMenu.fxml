@@ -9,6 +9,8 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="View.SettingsMenu"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="600.0" prefWidth="900.0"
+            stylesheets="@../CSS/styles.css"
+            styleClass="settings-menu-background">
 
 </AnchorPane>
