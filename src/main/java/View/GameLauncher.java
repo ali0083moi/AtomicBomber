@@ -68,9 +68,9 @@ public class GameLauncher extends Application {
         Plane plane = new Plane(game);
         PlaneAnimation planeAnimation = new PlaneAnimation(game, root, plane);
         planeAnimation.play();
+        game.addMyObject(plane);
         root.getChildren().add(plane);
         plane.requestFocus();
-        game.addMyObject(plane);
         plane.setOnKeyPressed(event -> {
             plane.requestFocus();
             if (App.isArrowKeys()) {
