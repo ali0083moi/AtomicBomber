@@ -17,11 +17,11 @@ public class Building extends Rectangle {
     private int y;
     private Game game;
 
-    public Building(Game game) {
+    public Building(Game game, int x) {
         super(60, 42);
         this.game = game;
-        setX((double) Game.WIDTH / 2 - WIDTH / 2);
-        setY((double) Game.HEIGHT / 2 - HEIGHT / 2);
+        setX((double) x);
+        setY((double) Game.HEIGHT - 180 - HEIGHT);
         Random rand = new Random();
         int randomNumber = rand.nextInt(3) + 1;
         String buildingPath = "/images/house-" + randomNumber + ".png";

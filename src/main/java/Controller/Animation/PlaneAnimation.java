@@ -12,7 +12,7 @@ public class PlaneAnimation extends Transition {
     private final Plane plane;
     private final double speed = 1;
     private boolean up, down, left, right;
-    private double angle = 0;
+    private double angle = 0.0001;
     private boolean isFlipped = false;
 
     public PlaneAnimation(Game game, Pane root, Plane plane) {

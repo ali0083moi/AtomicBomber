@@ -4,6 +4,7 @@ import Controller.GameLauncherController;
 import Controller.Animation.PlaneAnimation;
 import Controller.MainMenuController;
 import Model.*;
+import Model.GroundObjects.Building;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +17,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 
 
 public class GameLauncher extends Application {
@@ -55,8 +58,30 @@ public class GameLauncher extends Application {
             //App.saveUsers(App.getUsers());
             App.saveApp(App.getGuestUserCount());
         });
+        buildingCreator();
         planeCreator();
         //groundCreator();
+    }
+
+    private void buildingCreator() {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        do {
+            Random rand = new Random();
+            int x = rand.nextInt(900) + 1;
+            boolean flag = true;
+            for (int number : numbers) {
+                if (Math.abs(x - number) < 100 || x > 830) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                Building building = new Building(game, x);
+                game.addMyObject(building);
+                root.getChildren().add(building);
+                numbers.add(x);
+            }
+        } while (numbers.size() != 3);
     }
 
     private void groundCreator() {
