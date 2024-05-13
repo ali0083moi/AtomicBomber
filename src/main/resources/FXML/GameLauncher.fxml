@@ -10,7 +10,7 @@
 <?import javafx.scene.image.Image?>
 <Pane xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="View.GameLauncher"
+      fx:controller="View.Wave"
       prefHeight="600.0" prefWidth="900.0"
       stylesheets="@../CSS/styles.css">
     <children>

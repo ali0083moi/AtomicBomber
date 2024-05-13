@@ -6,14 +6,14 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.Objects;
 
-public class RadioActiveBomb extends Rectangle {
+public class AtomicBomb extends Rectangle {
     public final double WIDTH = 16;
     public final double HEIGHT = 30;
     private int x;
     private int y;
     private Game game;
 
-    public RadioActiveBomb(Game game) {
+    public AtomicBomb(Game game) {
         super(16, 30);
         this.game = game;
         setX((double) Game.WIDTH / 2 - WIDTH / 2);

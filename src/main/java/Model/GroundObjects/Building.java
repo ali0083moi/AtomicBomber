@@ -11,8 +11,8 @@ import java.util.Random;
 
 public class Building extends Rectangle {
     private final int points = 10;
-    public final double WIDTH = 60;
-    public final double HEIGHT = 42;
+    public static final double WIDTH = 60;
+    public static final double HEIGHT = 42;
     private int x;
     private int y;
     private Game game;
@@ -27,5 +27,4 @@ public class Building extends Rectangle {
         String buildingPath = "/images/house-" + randomNumber + ".png";
         setFill(new ImagePattern(new Image(Objects.requireNonNull(Plane.class.getResource(buildingPath)).toExternalForm())));
     }
-
 }

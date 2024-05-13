@@ -11,17 +11,17 @@ import java.util.Random;
 
 public class Tank extends Rectangle {
     private final int points = 8;
-    public final double WIDTH = 50;
-    public final double HEIGHT = 43.3;
+    public static final double WIDTH = 50;
+    public static final double HEIGHT = 23.9;
     private int x;
     private int y;
     private Game game;
 
-    public Tank(Game game) {
-        super(50, 43.3);
+    public Tank(Game game, int x) {
+        super(50, 23.9);
         this.game = game;
-        setX((double) Game.WIDTH / 2 - WIDTH / 2);
-        setY((double) Game.HEIGHT / 2 - HEIGHT / 2);
+        setX((double) x);
+        setY((double) Game.HEIGHT - HEIGHT - 180);
         setFill(new ImagePattern(new Image(Objects.requireNonNull(Plane.class.getResource("/images/tank.png")).toExternalForm())));
     }
 }

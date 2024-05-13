@@ -3,7 +3,7 @@ package Controller;
 import Model.App;
 import Model.Game;
 import Model.User;
-import View.GameLauncher;
+import View.Wave;
 import javafx.scene.control.Alert;
 
 import static View.Main.stage;
@@ -11,9 +11,9 @@ import static View.Main.stage;
 public class MainMenuController {
     public void startGame(User loggedInUser) throws Exception {
         Game game = new Game(loggedInUser, App.getDifficulty(), loggedInUser.getLastWave(), App.isIsMute(),App.isBlackAndWhite());
-        GameLauncher gameLauncher = new GameLauncher();
-        gameLauncher.setGame(game);
-        gameLauncher.start(stage);
+        Wave wave = new Wave();
+        wave.setGame(game);
+        wave.start(stage);
     }
 
     public void resumeGame() {

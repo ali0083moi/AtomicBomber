@@ -1,7 +1,6 @@
 package Model;
 
 import Controller.Animation.PlaneAnimation;
-import View.GameLauncher;
 import javafx.animation.Transition;
 import javafx.scene.Group;
 import javafx.scene.Node;

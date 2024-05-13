@@ -10,17 +10,17 @@ import java.util.Objects;
 
 public class Trench extends Rectangle {
     private final int points = 2;
-    public final double WIDTH = 20;
-    public final double HEIGHT = 15.7;
+    public static final double WIDTH = 20;
+    public static final double HEIGHT = 15.7;
     private int x;
     private int y;
     private Game game;
 
-    public Trench(Game game) {
+    public Trench(Game game, int x) {
         super(20, 15.7);
         this.game = game;
-        setX((double) Game.WIDTH / 2 - WIDTH / 2);
-        setY((double) Game.HEIGHT / 2 - HEIGHT / 2);
+        setX((double) x);
+        setY((double) Game.HEIGHT - HEIGHT - 180);
         setFill(new ImagePattern(new Image(Objects.requireNonNull(Plane.class.getResource("/images/trench.png")).toExternalForm())));
     }
 }
