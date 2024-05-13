@@ -146,7 +146,7 @@ public class Wave extends Application {
         } while (numbers.size() != size + 2 * Trench.WIDTH);
     }
 
-    private void treeCreator() {
+    private void treeCreator() throws NoSuchFieldException {
         int size = numbers.size();
         do {
             Random random = new Random();
@@ -241,7 +241,7 @@ public class Wave extends Application {
             if (event.getCode() == KeyCode.R) {
                 plane.shootAtomicBomb();
             }
-            if (event.getCode() == KeyCode.E) {
+            if (event.getCode() == KeyCode.C) {
                 plane.shootClusterBomb();
             }
             if (event.getCode() == KeyCode.ESCAPE) {

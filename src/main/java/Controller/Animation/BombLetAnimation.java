@@ -3,6 +3,7 @@ package Controller.Animation;
 import Model.BombLet;
 import Model.Game;
 import Model.Plane;
+import javafx.animation.PauseTransition;
 import javafx.animation.Transition;
 import javafx.application.Platform;
 import javafx.scene.layout.Pane;
@@ -59,20 +60,22 @@ public class BombLetAnimation extends Transition {
         if (bombLet.getY() >= Game.HEIGHT - bombLet.HEIGHT - 180) {
             bombLet.setExploded(true);
             this.stop();
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            root.getChildren().remove(bombLet);
-                            game.removeMyObject(bombLet);
-                        }
-                    });
+            for (int i = 0; i < game.getAllEnemyObjects().size(); i++) {
+                if (game.getAllEnemyObjects().get(i).getX() < (bombLet.getX() + bombLet.WIDTH / 2) && (bombLet.getX() + bombLet.WIDTH / 2) < game.getAllEnemyObjects().get(i).getX() + game.getAllEnemyObjects().get(i).getWidth()) {
+                    root.getChildren().remove(game.getAllEnemyObjects().get(i));
+                    game.removeEnemyObject(game.getAllEnemyObjects().get(i));
+                    break;
                 }
-            }, 1000);
-            return;
+            }
+            pauseTransition(Duration.seconds(1.6), () -> {
+                root.getChildren().remove(bombLet);
+                game.removeMyObject(bombLet);
+            });
         }
+    }
+    private void pauseTransition(Duration duration, Runnable callback) {
+        PauseTransition pause = new PauseTransition(duration);
+        pause.setOnFinished(event -> callback.run());
+        pause.play();
     }
 }

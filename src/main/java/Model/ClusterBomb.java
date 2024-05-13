@@ -22,6 +22,7 @@ public class ClusterBomb extends Rectangle {
     }
 
     public void setExploded(boolean b) {
+        this.setRotate(0);
         this.setWidth(30);
         this.setHeight(30);
         this.setY(Game.HEIGHT - 180 - 30);

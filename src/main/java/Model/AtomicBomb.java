@@ -22,9 +22,11 @@ public class AtomicBomb extends Rectangle {
     }
 
     public void setExploded(boolean b) {
+        this.setRotate(0);
         this.setWidth(70);
         this.setHeight(70);
         this.setY(Game.HEIGHT - 180 - 70);
+        this.setX(this.getX() - 20);
         setFill(new ImagePattern(new Image(Objects.requireNonNull(Plane.class.getResource("/images/explosion-2.gif")).toExternalForm())));
     }
 }

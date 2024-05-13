@@ -22,6 +22,7 @@ public class BombLet extends Rectangle {
     }
 
     public void setExploded(boolean b) {
+        this.setRotate(0);
         this.setWidth(40);
         this.setHeight(40);
         this.setY(Game.HEIGHT - 180 - 40);

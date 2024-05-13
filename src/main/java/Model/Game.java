@@ -4,8 +4,10 @@ import Controller.Animation.PlaneAnimation;
 import javafx.animation.Transition;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Game {
     public static final int WIDTH = 900;
@@ -25,8 +27,8 @@ public class Game {
     private int lastWave;
     private boolean isMuted;
     private boolean isBlackAndWhite;
-    private Group allEnemyObjects = new Group();
-    private Group allMyObjects = new Group();
+    private ArrayList<Rectangle> allEnemyObjects = new ArrayList<>();
+    private ArrayList<Rectangle> allMyObjects = new ArrayList<>();
     private ArrayList<Transition> animations = new ArrayList<>();
 
     public Game(User user, String difficulty, int lastWave, boolean isMuted, boolean isBlackAndWhite) {
@@ -112,17 +114,17 @@ public class Game {
 
     public void addAnimation(PlaneAnimation planeAnimation) {
     }
-    public void addEnemyObject(Node node) {
-        allEnemyObjects.getChildren().add(node);
+    public void addEnemyObject(Rectangle object) {
+        allEnemyObjects.add(object);
     }
-    public void addMyObject(Node node) {
-        allMyObjects.getChildren().add(node);
+    public void addMyObject(Rectangle object) {
+        allMyObjects.add(object);
     }
-    public void removeEnemyObject(Node node) {
-        allEnemyObjects.getChildren().remove(node);
+    public void removeEnemyObject(Rectangle object) {
+        allEnemyObjects.remove(object);
     }
-    public void removeMyObject(Node node) {
-        allMyObjects.getChildren().remove(node);
+    public void removeMyObject(Rectangle object) {
+        allMyObjects.remove(object);
     }
     public void addAnimation(Transition transition) {
         animations.add(transition);
@@ -131,11 +133,11 @@ public class Game {
         animations.remove(transition);
     }
 
-    public Group getAllEnemyObjects() {
+    public ArrayList<Rectangle> getAllEnemyObjects() {
         return allEnemyObjects;
     }
 
-    public Group getAllMyObjects() {
+    public ArrayList<Rectangle> getAllMyObjects() {
         return allMyObjects;
     }
 

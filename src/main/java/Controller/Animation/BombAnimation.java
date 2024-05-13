@@ -3,6 +3,7 @@ package Controller.Animation;
 import Model.Bomb;
 import Model.Game;
 import Model.Plane;
+import javafx.animation.PauseTransition;
 import javafx.animation.Transition;
 import javafx.application.Platform;
 import javafx.scene.layout.Pane;
@@ -66,26 +67,29 @@ public class BombAnimation extends Transition {
             bomb.setX(x);
         }
         if (bomb.getY() >= Game.HEIGHT - bomb.HEIGHT - 180) {
-            bomb.setExploded(true);
             this.stop();
-            //check if the bomb is in the range of the enemy rectangle and remove it
-            //private Group allEnemyObjects = new Group();
-            // now write the code to do this
-
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            root.getChildren().remove(bomb);
-                            game.removeMyObject(bomb);
-                        }
+            for (int i = 0; i < game.getAllEnemyObjects().size(); i++) {
+                bomb.setExplodedOnItem(true);
+                if (game.getAllEnemyObjects().get(i).getX() < (bomb.getX() + bomb.WIDTH / 2) && (bomb.getX() + bomb.WIDTH / 2) < game.getAllEnemyObjects().get(i).getX() + game.getAllEnemyObjects().get(i).getWidth()) {
+                    root.getChildren().remove(game.getAllEnemyObjects().get(i));
+                    game.removeEnemyObject(game.getAllEnemyObjects().get(i));
+                    pauseTransition(Duration.seconds(1.6), () -> {
+                        root.getChildren().remove(bomb);
+                        game.removeMyObject(bomb);
                     });
+                    return;
                 }
-            }, 1000);
-            return;
+            }
+            bomb.setExploded(true);
+            pauseTransition(Duration.seconds(1.2), () -> {
+                root.getChildren().remove(bomb);
+                game.removeMyObject(bomb);
+            });
         }
+    }
+    private void pauseTransition(Duration duration, Runnable callback) {
+        PauseTransition pause = new PauseTransition(duration);
+        pause.setOnFinished(event -> callback.run());
+        pause.play();
     }
 }

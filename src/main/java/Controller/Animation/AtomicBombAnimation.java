@@ -4,6 +4,7 @@ import Model.AtomicBomb;
 import Model.Bomb;
 import Model.Game;
 import Model.Plane;
+import javafx.animation.PauseTransition;
 import javafx.animation.Transition;
 import javafx.application.Platform;
 import javafx.scene.layout.Pane;
@@ -56,20 +57,22 @@ public class AtomicBombAnimation extends Transition{
         if (atomicBomb.getY() >= Game.HEIGHT - atomicBomb.HEIGHT - 180) {
             atomicBomb.setExploded(true);
             this.stop();
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            root.getChildren().remove(atomicBomb);
-                            game.removeMyObject(atomicBomb);
-                        }
-                    });
+            for (int i = 0; i < game.getAllEnemyObjects().size(); i++) {
+                if (game.getAllEnemyObjects().get(i).getX() < (atomicBomb.getX() + atomicBomb.WIDTH / 2) && (atomicBomb.getX() + atomicBomb.WIDTH / 2) < game.getAllEnemyObjects().get(i).getX() + game.getAllEnemyObjects().get(i).getWidth()) {
+                    root.getChildren().remove(game.getAllEnemyObjects().get(i));
+                    game.removeEnemyObject(game.getAllEnemyObjects().get(i));
+                    break;
                 }
-            }, 1000);
-            return;
+            }
+            pauseTransition(Duration.seconds(1.8), () -> {
+                root.getChildren().remove(atomicBomb);
+                game.removeMyObject(atomicBomb);
+            });
         }
+    }
+    private void pauseTransition(Duration duration, Runnable callback) {
+        PauseTransition pause = new PauseTransition(duration);
+        pause.setOnFinished(event -> callback.run());
+        pause.play();
     }
 }

@@ -1,6 +1,7 @@
 package Controller.Animation;
 
 import Model.*;
+import javafx.animation.PauseTransition;
 import javafx.animation.Transition;
 import javafx.application.Platform;
 import javafx.scene.layout.Pane;
@@ -74,21 +75,22 @@ public class ClusterBombAnimation extends Transition {
         } else if (clusterBomb.getY() >= Game.HEIGHT - clusterBomb.HEIGHT - 180) {
             clusterBomb.setExploded(true);
             this.stop();
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            root.getChildren().remove(clusterBomb);
-                            game.removeMyObject(clusterBomb);
-                        }
-                    });
+            for (int i = 0; i < game.getAllEnemyObjects().size(); i++) {
+                if (game.getAllEnemyObjects().get(i).getX() < (clusterBomb.getX() + clusterBomb.WIDTH / 2) && (clusterBomb.getX() + clusterBomb.WIDTH / 2) < game.getAllEnemyObjects().get(i).getX() + game.getAllEnemyObjects().get(i).getWidth()) {
+                    root.getChildren().remove(game.getAllEnemyObjects().get(i));
+                    game.removeEnemyObject(game.getAllEnemyObjects().get(i));
+                    break;
                 }
-            }, 1000);
-            return;
+            }
+            pauseTransition(Duration.seconds(1.2), () -> {
+                root.getChildren().remove(clusterBomb);
+                game.removeMyObject(clusterBomb);
+            });
         }
-
+    }
+    private void pauseTransition(Duration duration, Runnable callback) {
+        PauseTransition pause = new PauseTransition(duration);
+        pause.setOnFinished(event -> callback.run());
+        pause.play();
     }
 }
