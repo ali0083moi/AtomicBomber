@@ -12,6 +12,8 @@ public class User {
     private int kills;
     private int deaths;
     private int accuracy;
+    private int atomicBombs;
+    private int clusterBombs;
     private Game lastGame;
 
     public User(String username, String password, String avatarPath) {
@@ -26,6 +28,8 @@ public class User {
         this.kills = 0;
         this.deaths = 0;
         this.accuracy = 0;
+        this.atomicBombs = 1;
+        this.clusterBombs = 1;
         this.lastGame = null;
     }
 
@@ -123,5 +127,21 @@ public class User {
 
     public void setLastGame(Game lastGame) {
         this.lastGame = lastGame;
+    }
+
+    public int getAtomicBombs() {
+        return atomicBombs;
+    }
+
+    public void setAtomicBombs(int atomicBombs) {
+        this.atomicBombs = atomicBombs;
+    }
+
+    public int getClusterBombs() {
+        return clusterBombs;
+    }
+
+    public void setClusterBombs(int clusterBombs) {
+        this.clusterBombs = clusterBombs;
     }
 }

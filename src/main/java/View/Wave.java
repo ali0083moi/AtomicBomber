@@ -28,12 +28,12 @@ public class Wave extends Application {
     private User loggedInUser = App.getLoggedInUser();
     public ImageView avatarImageView;
     private Game game;
-    final GameLauncherController controller = new GameLauncherController();
     public static Stage stage;
     Pane root;
     private ArrayList<Integer> numbers = new ArrayList<>();
 
     private ArrayList<Integer> numbers2 = new ArrayList<>();
+    private GameLauncherController controller;
 
     private void setSize(Pane root) {
         root.setPrefSize(Game.WIDTH, Game.HEIGHT);
@@ -62,6 +62,7 @@ public class Wave extends Application {
             //App.saveUsers(App.getUsers());
             App.saveApp(App.getGuestUserCount());
         });
+        controller = new GameLauncherController(game, root);
         buildingCreator();
         treeCreator();
         trenchCreator();
@@ -199,7 +200,7 @@ public class Wave extends Application {
     }
 
     private void planeCreator() {
-        Plane plane = new Plane(game);
+        Plane plane = new Plane(game, root);
         PlaneAnimation planeAnimation = new PlaneAnimation(game, root, plane);
         planeAnimation.play();
         game.addMyObject(plane);
@@ -233,6 +234,33 @@ public class Wave extends Application {
                 if (event.getCode() == KeyCode.S) {
                     planeAnimation.setDown(true);
                 }
+            }
+            if (event.getCode() == KeyCode.SPACE) {
+                plane.shootBomb();
+            }
+            if (event.getCode() == KeyCode.R) {
+                plane.shootAtomicBomb();
+            }
+            if (event.getCode() == KeyCode.E) {
+                plane.shootClusterBomb();
+            }
+            if (event.getCode() == KeyCode.ESCAPE) {
+                controller.stop();
+            }
+            if (event.getCode() == KeyCode.P) {
+                controller.changeWave();
+            }
+            if (event.getCode() == KeyCode.G) {
+                controller.addAtomicBomb();
+            }
+            if (event.getCode() == KeyCode.COMMAND) {
+                controller.addCluster();
+            }
+            if (event.getCode() == KeyCode.T) {
+                controller.addTank();
+            }
+            if (event.getCode() == KeyCode.H) {
+                controller.addLive();
             }
         });
         plane.setOnKeyReleased(event -> {

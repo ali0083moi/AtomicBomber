@@ -26,15 +26,18 @@ public class PlaneAnimation extends Transition {
 
     @Override
     protected void interpolate(double v) {
+        plane.setAngle(angle);
         double piAngle = 2 * Math.PI;
         double dAngle = Math.PI / 180;
         plane.setRotate(-angle * 180 / Math.PI);
         if ((this.angle >= (piAngle / 4) && this.angle < (3 * piAngle / 4)) && !isFlipped) {
             isFlipped = true;
+            plane.setFlipped(true);
             plane.setScaleY(-1);
         }
         if (((this.angle > 0 && this.angle < (piAngle / 4)) || (this.angle >= (3 * piAngle / 4) && this.angle < (piAngle))) && isFlipped) {
             isFlipped = false;
+            plane.setFlipped(false);
             plane.setScaleY(1);
         }
         if (angle < 0) {

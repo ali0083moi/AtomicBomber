@@ -13,11 +13,18 @@ public class AtomicBomb extends Rectangle {
     private int y;
     private Game game;
 
-    public AtomicBomb(Game game) {
+    public AtomicBomb(Game game, double x, double y) {
         super(16, 30);
         this.game = game;
-        setX((double) Game.WIDTH / 2 - WIDTH / 2);
-        setY((double) Game.HEIGHT / 2 - HEIGHT / 2);
+        setX(x);
+        setY(y);
         setFill(new ImagePattern(new Image(Objects.requireNonNull(Plane.class.getResource("/images/atomic-bomb.png")).toExternalForm())));
+    }
+
+    public void setExploded(boolean b) {
+        this.setWidth(70);
+        this.setHeight(70);
+        this.setY(Game.HEIGHT - 180 - 70);
+        setFill(new ImagePattern(new Image(Objects.requireNonNull(Plane.class.getResource("/images/explosion-2.gif")).toExternalForm())));
     }
 }
