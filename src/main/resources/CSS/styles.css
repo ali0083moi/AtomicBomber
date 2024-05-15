@@ -165,3 +165,6 @@
     -fx-background-image: url("/Images/settings-menu-background.png");
     -fx-background-size: cover;
 }
+.progress-bar .track {
+    -fx-background-color: none; /* green color */
+}

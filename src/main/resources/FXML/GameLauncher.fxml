@@ -8,17 +8,50 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
 <Pane xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="View.Wave"
       prefHeight="600.0" prefWidth="900.0"
       stylesheets="@../CSS/styles.css">
     <children>
-        <Label layoutX="14.0" layoutY="14.0" text="Atomic Bomber"/>
+<!--        <Label layoutX="14.0" layoutY="14.0" text="Atomic Bomber"/>-->
         <ImageView fx:id="groundImageView" fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/ground1.png"/>
         </ImageView>
-        <ImageView fx:id="avatarImageView" fitHeight="40.0" fitWidth="40.0" translateX="14.0" translateY="500.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="avatarImageView" layoutX="106" layoutY="475" fitHeight="62" fitWidth="62"/>
+        <ProgressBar fx:id="freezProgressBar" progress="1" layoutY="546" layoutX="208" maxHeight="15" minWidth="115"
+                     maxWidth="200"/>
+        <ProgressBar fx:id="HPProgressBar" progress="1" layoutY="508" layoutX="199" maxHeight="30" minWidth="173"
+                     maxWidth="200"/>
+        <ImageView layoutX="80" layoutY="450" fitHeight="120" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/in-game-user-data-shower.png"/>
+        </ImageView>
+        <Text layoutY="505" layoutX="205" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" fx:id="username"
+              text="Player Username"
+              wrappingWidth="200.0"/>
+        <Text layoutY="553" layoutX="173" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" fx:id="waveNumber"
+              text="1"/>
+        <ImageView layoutX="450" layoutY="450" fitHeight="40" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/atomic-bomb-counter-shower.png"/>
+        </ImageView>
+        <Text style="-fx-font-size: 12" layoutX="495" layoutY="475" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" fx:id="atomicBombCounter"
+              text="0"
+              wrappingWidth="200.0"/>
+        <ImageView layoutX="450" layoutY="500" fitHeight="40" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/cluster-bomb-counter-shower.png"/>
+        </ImageView>
+        <Text style="-fx-font-size: 12" layoutX="495" layoutY="525" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" fx:id="clusterBombCounter"
+              text="0"
+              wrappingWidth="200.0"/>
+        <ImageView layoutX="450" layoutY="550" fitHeight="40" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/kills-counter-shower.png"/>
+        </ImageView>
+        <Text style="-fx-font-size: 12" layoutX="495" layoutY="575" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" fx:id="killsCounter"
+              text="0"
+              wrappingWidth="200.0"/>
+        <Button focusTraversable="false" onMouseClicked="#openPauseMenu" styleClass="red-button-style,button" layoutX="14.0" layoutY="14.0"
+                text="Pause"/>
     </children>
 
 </Pane>

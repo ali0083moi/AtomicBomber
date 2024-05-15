@@ -11,10 +11,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TreeTableRow;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -34,6 +38,7 @@ public class Wave extends Application {
 
     private ArrayList<Integer> numbers2 = new ArrayList<>();
     private GameLauncherController controller;
+    private MediaPlayer mediaPlayer;
 
     private void setSize(Pane root) {
         root.setPrefSize(Game.WIDTH, Game.HEIGHT);
@@ -63,6 +68,10 @@ public class Wave extends Application {
             App.saveApp(App.getGuestUserCount());
         });
         controller = new GameLauncherController(game, root);
+        String musicPath = "/sounds/music-" + loggedInUser.getLastWave() + ".mp3";
+        Media media = new Media(getClass().getResource(musicPath).toExternalForm());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
         buildingCreator();
         treeCreator();
         trenchCreator();
@@ -113,6 +122,7 @@ public class Wave extends Application {
                     Tank tank = new Tank(game, x);
                     TankAnimation tankAnimation = new TankAnimation(game, root, tank);
                     tankAnimation.play();
+                    tank.setTransition(tankAnimation);
                     game.addEnemyObject(tank);
                     root.getChildren().add(tank);
                     for (int i = (int) (x - Tank.WIDTH); i < x; i++) {
@@ -311,6 +321,11 @@ public class Wave extends Application {
         setSize(root);
         Scene scene = new Scene(root);
         Image icon = new Image(Objects.requireNonNull(Main.class.getResource("/images/icon.jpg")).toExternalForm());
+        if (App.isBlackAndWhite()){
+            ColorAdjust colorAdjust = new ColorAdjust();
+            colorAdjust.setSaturation(-1);
+            root.setEffect(colorAdjust);
+        }
         stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.setTitle(title);
@@ -319,5 +334,8 @@ public class Wave extends Application {
         String backgroundPath = "/Images/game-background-" + loggedInUser.getLastWave() + ".jpg";
         root.setStyle("-fx-background-image: url('" + backgroundPath + "')");
         stage.show();
+    }
+
+    public void openPauseMenu(MouseEvent mouseEvent) {
     }
 }

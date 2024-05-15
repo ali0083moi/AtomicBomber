@@ -8,6 +8,8 @@ import javafx.animation.PauseTransition;
 import javafx.animation.Transition;
 import javafx.application.Platform;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.util.Timer;
@@ -23,6 +25,7 @@ public class AtomicBombAnimation extends Transition{
     private final double gravity = 0.02;
     private double angle;
     private boolean isFlipped = false;
+    private MediaPlayer mediaPlayer;
 
     public AtomicBombAnimation(Game game, Pane root, AtomicBomb atomicBomb, Plane plane) {
         this.game = game;
@@ -41,6 +44,9 @@ public class AtomicBombAnimation extends Transition{
         this.setCycleCount(-1);
         this.setCycleDuration(Duration.millis(100));
         game.addAnimation(this);
+        Media media = new Media(getClass().getResource("/sounds/atomic-bomb-drop.mp3").toExternalForm());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
     }
 
     @Override
@@ -57,6 +63,10 @@ public class AtomicBombAnimation extends Transition{
         if (atomicBomb.getY() >= Game.HEIGHT - atomicBomb.HEIGHT - 180) {
             atomicBomb.setExploded(true);
             this.stop();
+            mediaPlayer.stop();
+            Media media = new Media(getClass().getResource("/sounds/atomic-bomb-explosion.mp3").toExternalForm());
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.play();
             for (int i = 0; i < game.getAllEnemyObjects().size(); i++) {
                 if (game.getAllEnemyObjects().get(i).getX() < (atomicBomb.getX() + atomicBomb.WIDTH / 2) && (atomicBomb.getX() + atomicBomb.WIDTH / 2) < game.getAllEnemyObjects().get(i).getX() + game.getAllEnemyObjects().get(i).getWidth()) {
                     root.getChildren().remove(game.getAllEnemyObjects().get(i));
